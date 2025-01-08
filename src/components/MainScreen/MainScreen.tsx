@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, FlatList } from 'react-native';
 import styles from './MainScreen.style';
 import PointsCard from '../PointsCard/PointsCard';
 import ProductCard from '../ProductCard/ProductCard';
 import { ProductCardInterface } from '../../interfaces/interfaces';
+import Button from '../Button/Button';
 
 const MainScreen = () => {
+
+    const [showAllButton, setShowAllButton] = useState(false);
 
     const renderItem = ({ item }: { item: ProductCardInterface }) => (
         <ProductCard
@@ -113,8 +116,8 @@ const MainScreen = () => {
                 <Text style={styles.yourPointsText}>TUS PUNTOS</Text>
                 <PointsCard />
             </View>
+            <Text style={styles.yourPointsText}>TUS MOVIMIENTOS</Text>
             <View style={styles.bodyContainer}>
-                <Text style={styles.yourPointsText}>TUS MOVIMIENTOS</Text>
                 <FlatList 
                     data={arraytochange}
                     renderItem={renderItem}
@@ -122,10 +125,25 @@ const MainScreen = () => {
                         (item) => item.id
                     }
                 />
-
             </View>
             <View style={styles.footerContainer}>
-
+                {showAllButton ? 
+                <Button
+                    buttonTitle = {"Todos"}
+                    width={'80%'}
+                />
+                :
+                <View style={{flexDirection:'row', width:'95%', justifyContent:'space-around'}}>
+                    <Button
+                        buttonTitle = {"Ganados"}
+                        width={'45%'}
+                    />
+                    <Button
+                        buttonTitle = {"Canjeados"}
+                        width={'45%'}
+                    />
+                </View>
+                }
             </View>
         </View>
     )
