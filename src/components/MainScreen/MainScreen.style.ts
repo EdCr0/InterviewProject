@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     mainContainer: {
         flex:1,
-        // backgroundColor: 'blue'
+        backgroundColor: 'rgba(242,242,242,1)'
     },
     welcomeText: {
         fontSize: 20,
@@ -13,24 +13,28 @@ export default StyleSheet.create({
         paddingLeft: 10,
     },
     nameText:{
-        paddingLeft: 10,
+        paddingLeft: 11,
         paddingBottom: 10,
     },
     headerContainer :{
         flex:.38,
-        backgroundColor:'red',
-        // alignItems: 'center',
+        backgroundColor:'transparent',
     },
     bodyContainer: {
         flex: .52,
-        backgroundColor:'pink',
+        width:'94%',
+        alignSelf:'center',
+        borderRadius: 25,
+        backgroundColor: '#FFF',
     },
     footerContainer: {
         flex: .1,
-        backgroundColor:'green',
+        backgroundColor:'transparent',
+        justifyContent: 'center',
+        alignItems:'center'
     },
     yourPointsText: {
-        paddingLeft: 10,
+        paddingLeft: 15,
         paddingBottom: 10,
     }
 });
